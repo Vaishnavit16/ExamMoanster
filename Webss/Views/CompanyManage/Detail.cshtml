@@ -1,0 +1,102 @@
+﻿ @model TestPackage
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">TestPackage Details</h4>
+    </div>
+
+
+   
+
+
+                <table class=" table table-bordered">
+
+
+
+                   
+
+                 
+                    <tr>
+                        <td> PackageTitle</td>
+                        <td> @Model.PackageTitle</td>
+                    </tr>
+                    <tr>
+                        <td> ApplicationDate</td>
+                        <td> @Model.ApplicationDate</td>
+                    </tr>
+                    <tr>
+                        <td> CreationDate</td>
+                        <td> @Model.CreationDate</td>
+                    </tr>
+                    <tr>
+                        <td> PackageDesc</td>
+                        <td> @Model.PackageDesc</td>
+                    </tr>
+                    <tr>
+                        <td> Price</td>
+                        <td> @Model.Price</td>
+                    </tr>
+
+                    <tr>
+                        <td> MaxCandidatePerExam</td>
+                        <td> @Model.MaxCandidatePerExam</td>
+                    </tr>
+
+
+
+                </table>
+
+                <div class="card-header py-3">
+                    <h4 class="m-0 font-weight-bold text-primary">TestPackagedet Details</h4>
+                </div>
+
+                <table class=" table table-bordered">
+
+
+
+                    <thead>
+                        <tr>
+                            
+                            <th> NoOfTest</th>
+                            <th> ValidateInMonths</th>
+                        </tr>
+                    </thead>
+
+                   <tbody>
+            @if (Model.TestPackageDets != null && Model.TestPackageDets.Any())
+            {
+                @foreach (var temp in Model.TestPackageDets)
+                {
+                    <tr>
+                        <td>@temp.NoofTest</td>
+                        <td>@temp.ValidityInMonths</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2">No test details available.</td>
+                </tr>
+            }
+                   </tbody>
+
+                </table>
+
+
+
+
+            </div>
+        
+
+
+
+            @* <div>
+    @await Component.InvokeAsync("OfferDiscountVC")
+            </div> *@
+
+
+   <div>
+       <a asp-action="Index" asp-controller="CompanyManage" class="btn btn-primary" > Back </a>
+       <a asp-action="Buy" asp-controller="PackagePurchase" class="btn btn-primary"> Buy</a>
+   </div>

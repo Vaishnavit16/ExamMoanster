@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TestpackageandDetail>
+
+
+
+<div class="text-center">
+    <h1 class="h4 text-black-900 mb-4">Test Packages!</h1>
+</div>
+
+            <table class="table table-bordered table-hover table-dark" width="100px">
+                <thead>
+                    <tr>
+                        <th> PackageTitle</th>
+                        <th> Price</th>
+                        <th> NoofTest</th>
+                        <th> MaxCandidatePerExam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var temp in Model)
+                    {
+                        <tr>
+                            <td> @temp.PackageTitle</td>
+                            <td> @temp.Price</td>
+                            <td> @temp.NoofTest</td>
+                            <td> @temp.MaxCandidatePerExam</td>
+                              <td>
+                             <a asp-action="Detail" asp-controller="CompanyManage" asp-route-id="@temp.TestPackageID" class="btn btn-primary"> Details </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+          

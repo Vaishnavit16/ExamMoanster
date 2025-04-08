@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Company>
+
+<html>
+<head>
+    <title> </title>
+</head>
+<body>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h2 class="m-0 font-weight-bold text-primary">ActiveComapny List</h2>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mt-3" >
+                        <a asp-action="deactive" class="btn btn-primary"> Bcak to Deactive Company List</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th> Sr.No</th>
+                                        <th>CompanyID</th>
+                                        <th>CompanyName</th>
+                                        <th>Address</th>
+                                        <th>EmailID</th>
+                                        <th>  ContactpersonName</th>
+                                        <th>ContactNo</th>
+                                        <th> CompanyDesc</th>
+                                        <th> Password</th>
+                                        <th> RegistrationDate</th>
+                                        <th> Active Flag</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @{
+                                       int  srno = 1;
+                                    }
+                                    @foreach (var temp in Model.Where(c=>c.ActiveFlag==true))
+                                    {
+                                        <tr>
+                                         
+                                            <td Scope="row"> @srno</td>
+                                            <td> @temp.CompanyID</td>
+                                            <td> @temp.CompanyName</td>
+                                            <td> @temp.Address</td>
+                                            <td> @temp.EmailID</td>
+                                            <td> @temp.ContactPersonName</td>
+                                            <td> @temp.ContactNo</td>
+                                            <td> @temp.CompanyDesc</td>
+                                            <td> @temp.Password</td>
+                                            <td> @temp.RegistrationDate</td>
+                                            <td> @temp.ActiveFlag</td>
+                                            <td>
+                                                <a class="btn btn-primary" asp-action="deactivetoggle" asp-route-id="@temp.CompanyID"> Deactive</a>
+                                            </td>
+                                            
+                                        </tr>
+                                        srno++;
+                                    }
+
+                                </tbody>
+                                
+                            </table>
+
+
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

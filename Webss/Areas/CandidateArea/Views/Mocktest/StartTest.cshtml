@@ -1,0 +1,47 @@
+﻿@using Domain
+@model IList<MockTestQuestion>
+
+@*@{
+    ViewData["Title"] = "StartTest";
+}*@
+
+
+<hr />
+<div class="col-6">
+    <div class="card""">
+        <div class="card-body">
+            @{
+                int srno = 1;
+            }
+            <form method="post" asp-action="Submit">
+                @for (var i = 0; i < Model.Count(); i++)
+                {
+
+                    @: Que @srno )
+                    <input type="hidden" asp-for="@Model[i].MockTestSubjectID" />
+                    <input type="hidden" asp-for="@Model[i].MockTestQuestionID" />
+                    <input type="hidden" asp-for="@Model[i].MockTestID" value="@ViewBag.id" />
+                    @Html.DisplayFor(p => Model[i].Questions)
+                    <br />
+
+                    @for (var j = 0; j < Model[i].MockTestQueOptions.Count(); j++)
+                    {
+                        <input type="hidden" asp-for="@Model[i].MockTestQueOptions[j].IsCurrect" />
+                        @Html.CheckBoxFor(p => Model[i].MockTestQueOptions[j].Selected)
+                        @*<input type="checkbox" id="o" value="Model[i].MockTestQueOptions[j].Option" />*@
+                        @Html.DisplayFor(p => Model[i].MockTestQueOptions[j].Option)
+                        <br />
+                    }
+                    <br />
+                    <br />
+                    srno++;
+                }
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+
+           
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,61 @@
+﻿@model TestPackageDTO
+<div class="col-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Create TestPackage </h5>
+
+            <!-- Vertical Form -->
+            <form asp-action="Add" method="post" class="row g-3">
+                <div class="col-12">
+                    <label asp-for="ApplicationDate" class="form-label">
+                    </label>
+                    <input asp-for="ApplicationDate" class="form-control" />
+                 </div>
+
+                <div class="col-12">
+                    <label asp-for="Price" class="form-label">
+                    </label>
+                    <input asp-for="Price" class="form-control" />
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="PackageTitle" class="form-label">
+                    </label>
+                    <input asp-for="PackageTitle" class="form-control" />
+                </div>
+                <div class="col-12">
+                    <label asp-for="PackageDesc" class="form-label">
+                    </label>
+                    <input asp-for="PackageDesc" class="form-control" />
+                </div>
+                <div class="col-12">
+                    <label asp-for="MaxCandidatePerExam" class="form-label">
+                    </label>
+                    <input asp-for="MaxCandidatePerExam" class="form-control" />
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="NoofTest" class="form-label">
+                    </label>
+                    <input asp-for="NoofTest" class="form-control" />
+                </div>
+
+                <div class="col-12">
+                    <label asp-for="ValidityInMonths" class="form-label">
+                    </label>
+                    <input asp-for="ValidityInMonths" class="form-control" />
+                </div>
+
+
+                <div class="mt-3">
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form><!-- Vertical Form -->
+
+        </div>
+    </div>
+</div>

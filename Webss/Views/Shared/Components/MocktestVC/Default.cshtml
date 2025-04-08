@@ -1,0 +1,36 @@
+﻿ @model IEnumerable<MockTest>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="m-0 font-weight-bold text-primary">MockTest List</h2>
+    </div>
+
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th> MockTestID</th>
+                <th>MockTestName</th>
+                <th>MockTestSubject</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var temp in Model)
+            {
+                <tr>
+                    <td>@temp.MockTestID</td>
+                    <td>@temp.MockTestName</td>
+                    <td>@temp.MockTestSubject.SubjectTitle</td>
+
+                    <td>
+
+                        <a asp-action="Start" asp-controller="Mocktest" asp-route-id="@temp.MockTestID" class="btn btn-success">Start</a>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

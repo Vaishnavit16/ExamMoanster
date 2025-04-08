@@ -1,0 +1,84 @@
+﻿@using Domain
+@model IEnumerable<MockTest>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<form method="post">
+    <div>
+        Mock Test Subject : <select asp-items="@ViewBag.mocktestsubject" name="id"></select>
+        <input type="submit" asp-action="Search" asp-route-data="MockTestSubjectID" class="btn btn-success" />
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+            MockTestID
+            </th>*@
+            <th>
+                Sr No
+            </th>
+            <th>
+                MockTestName
+            </th>
+            <th>
+                SubjectTitle
+            </th>
+            <th>
+                NoOfQuestions
+            </th>
+            <th>
+                MarkPerQuestion
+            </th>
+            <th>
+                IsNegative
+            </th>
+            <th>
+                PassingMarks
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @{
+        int srno = 1;
+    }
+    <tbody>
+        @foreach (var temp in Model)
+        {
+            <tr>
+                @*<td>
+            @temp.MockTestID
+            </td>*@
+                <td>
+                    @srno
+                </td>
+                <td>
+                    @temp.MockTestName
+                </td>
+                <td>
+                    @temp.MockTestSubject.SubjectTitle
+                </td>
+                <td>
+                    @temp.NoofQuestion
+                </td>
+                <td>
+                    @temp.MarksPerQuestion
+                </td>
+                <td>
+                    @temp.IsNegavtive
+
+                </td>
+                <td>
+                    @temp.PassingMarks
+                </td>
+                <td>
+                    <a asp-action="Start" asp-route-id="@temp.MockTestID" class="btn btn-success">Start</a>
+                </td>
+            </tr>
+            srno++;
+        }
+    </tbody>
+</table>

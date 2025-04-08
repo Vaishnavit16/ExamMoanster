@@ -1,0 +1,107 @@
+﻿@* @model QuestionsDetailDTO
+
+<h3><b> Question Details</b></h3>
+
+<table class="table" contenteditable="true">
+    <thead>
+        <tr>
+            <th><b> Question Title  ==></b></th>
+            <td>@Model.QuestionTitle</td>
+        </tr>
+        <tr>
+            <th><b> Is Objective  ==></b></th>
+            <td>@Model.IsObjective </td>
+        </tr>
+    </thead>
+</table>
+
+<h3><b>Options</b></h3>
+
+@if (Model.Answers != null && Model.Answers.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Is Correct</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var temp in Model.Answers)
+            {
+                <tr>
+                    <td>@temp.Option</td>
+                    <td>@temp.IsCorrect</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+ *@
+
+
+
+ @model QuestionsDetailDTO
+<div class="col-6">
+    <div class="card">
+        <div class="card-body">
+
+<h3><b> Question Details</b></h3>
+
+<table class="table" contenteditable="true">
+    <thead>
+        <tr>
+            <th><b> Question Title  ==></b></th>
+            <td>@Model.QuestionTitle</td>
+        </tr>
+        <tr>
+            <th><b> Is Objective  ==></b></th>
+            <td>@Model.IsObjective</td>
+        </tr>
+    </thead>
+</table>
+
+@if (Model.IsObjective)
+{
+    <h3><b>Options</b></h3>
+
+    @if (Model.Answers != null && Model.Answers.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Option</th>
+                    <th>Is Correct</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var temp in Model.Answers)
+                {
+                    <tr>
+                        <td>@temp.Option</td>
+                        <td>@temp.IsCorrect</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No options available.</p>
+    }
+}
+else
+{
+    <p>Options are not available .</p>
+}
+</<div>
+ </div>
+
+</div>
+
+
+
+        <div class="mt-5">
+            <a asp-action="Index" asp-controller="Company" class="btn btn-primary" >Back</a>
+        </div> 
+

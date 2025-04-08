@@ -1,0 +1,49 @@
+﻿@using Domain
+@model IList<Question>
+
+@{
+    ViewData["Title"] = "StartTest";
+}
+
+<h1>StartTest</h1>
+
+
+@{
+    int srno = 1;
+}
+
+<form method="post" asp-action="Submit" style="margin-left:50px" id="myForm">
+    <input type="hidden" name="sid" value="@ViewBag.sid" />
+    <input type="hidden" name="aid" value="@ViewBag.aid" />
+    @for (var i = 0; i < Model.Count(); i++)
+    {
+
+        @: Que @srno )
+        <input type="hidden" asp-for="@Model[i].QuestionBankID" />
+        <input type="hidden" asp-for="@Model[i].QuestionID" />
+
+        @Html.DisplayFor(p => Model[i].QuestionTitle)
+        <br />
+
+        @for (var j = 0; j < Model[i].QuestionAnswers.Count(); j++)
+        {
+            <input type="hidden" asp-for="@Model[i].QuestionAnswers[j].IsCorrect" />
+            @Html.CheckBoxFor(p => Model[i].QuestionAnswers[j].IsSelected)
+            @*<input type="checkbox" id="o" value="Model[i].MockTestQueOptions[j].Option" />*@
+            @Html.DisplayFor(p => Model[i].QuestionAnswers[j].Option)
+            <br />
+        }
+        <br />
+        <br />
+        srno++;
+    }
+
+    <button type="submit" class="btn btn-success" style="text-align:center">Submit</button>
+   
+
+    <br />
+    <br />
+    <br />
+    
+</form>
+

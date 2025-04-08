@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TestPackage>
+
+<html>
+<head>
+    <title> </title>
+</head>
+<body>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h2 class="m-0 font-weight-bold text-primary">TestPackage List</h2>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mt-3">
+                        <a asp-action="Add" asp-controller="TestPackage" class="btn btn-primary">  Create TestPackage</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th> Sr.No</th>
+                                        <th>TestPackageName</th>
+                                         <th> price</th>
+
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @{
+                                        int srno = 1;
+                                    }
+                                    @foreach (var temp in Model)
+                                    {
+                                        <tr>
+                                            <td Scope="row"> @srno</td>
+                                            <td> @temp.PackageTitle</td>
+                                            <td> @temp.Price</td>
+
+                                            <td>
+
+                                                <a asp-action="Edit" asp-route-id="@temp.TestPackageID" class="btn btn-primary"> Edit </a>
+                                                <a asp-action="Delete" asp-route-id="@temp.TestPackageID" class="btn btn-primary"> Delete </a>
+                                                <a asp-action="Deatils" asp-route-id="@temp.TestPackageID" class="btn btn-primary"> Detail </a>
+                                            </td>
+                                        </tr>
+                                        srno++;
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

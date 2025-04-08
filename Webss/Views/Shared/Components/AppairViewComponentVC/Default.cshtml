@@ -1,0 +1,38 @@
+﻿@model List<ExamViewModel>
+
+<h3 style="text-align:center"><b>Scdeule</b></h3>
+
+@if (Model != null && Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Schedule Date</th>
+                    <th>Exam Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Obtained Marks</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var exam in Model)
+            {
+                        <tr>
+                            <td>@exam.CompanyName</td>
+                            <td>@exam.ScheduleDate.ToString("MM/dd/yyyy")</td>
+                            <td>@exam.ExamDate.ToString("MM/dd/yyyy")</td>
+                            <td>@exam.StartTime.ToString("HH:mm")</td>
+                            <td>@exam.EndTime.ToString("HH:mm")</td>
+                            <td>@exam.ObtainedMarks</td>
+                            <td>@exam.Result</td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No tests have been submitted yet.</p>
+}

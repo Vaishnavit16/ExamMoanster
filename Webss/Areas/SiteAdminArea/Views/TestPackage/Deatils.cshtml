@@ -1,0 +1,82 @@
+﻿
+
+ @model TestPackage
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">TestPackage Details</h4>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                  
+                <table class=" table table-bordered">
+
+
+
+                    <tr>
+                        <td> ApplicationDate</td>
+                        <td> @Model.ApplicationDate</td>
+                    </tr>
+
+                    <tr>
+                        <td> Price</td>
+                        <td> @Model.Price</td>
+                    </tr>
+
+                    <tr>
+                        <td> PackageTitle</td>
+                        <td> @Model.PackageTitle</td>
+                    </tr>
+
+                    <tr>
+                        <td> PackageDesc</td>
+                        <td> @Model.PackageDesc</td>
+                    </tr>
+                    <tr>
+                        <td> MaxCandidatePerExam</td>
+                        <td> @Model.MaxCandidatePerExam</td>
+                    </tr>
+
+
+
+                </table>
+
+                <div class="card-header py-3">
+                    <h4 class="m-0 font-weight-bold text-primary">TestPackagedet Details</h4>
+                </div>
+
+                <table class=" table table-bordered">
+
+
+
+                    <thead>
+                        <tr>
+                            <td> NoOfTest</td>
+                            <td> ValidateInMonths</td>
+                        </tr>
+                    </thead>
+
+                    @foreach(var temp in Model.TestPackageDets)
+                    {
+                        <tr>
+                            <td> @temp.NoofTest</td>
+                            <td> @temp.ValidityInMonths</td>
+                        </tr>
+                    }
+
+                </table>
+
+                        <a asp-action="Index" class="btn btn-primary"> Back</a>
+
+            </div>
+    </div>
+</div>
+</div>
+
+
+
+

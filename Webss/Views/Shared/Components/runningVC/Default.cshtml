@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ScheduleExam>
+
+
+	<div class="col-10">
+		<div class="card">
+			<div class="card-body">
+
+			<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th> ScheduleExamID</th>
+						
+							<th> ScheduleDate</th>
+							
+							<th> ExamDate</th>
+							<th> StartTime</th>
+							<th> EndTime</th>
+							<th> IsResultOpen</th>
+							<th> IsObjective</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach(var temp in Model)
+						{
+							<tr>
+							<td> @temp.ScheduleExamID </td>
+							
+							<td> @temp.ScheduleDate </td>
+							
+							<td> @temp.ExamDate</td>
+							<td> @temp.StartTime </td>
+							<td> @temp.EndTime </td>
+							<td> @temp.IsResultOpen</td>
+							<td> @temp.IsObjective</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>

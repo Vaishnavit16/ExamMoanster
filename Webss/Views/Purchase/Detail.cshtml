@@ -1,0 +1,123 @@
+﻿@* @using Domain.Enums
+@model TestPackage
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">TestPackage Details</h4>
+    </div>
+
+    <table class=" table table-bordered">
+        <tr>
+            <td> PackageTitle</td>
+            <td> @Model.PackageTitle</td>
+        </tr>
+        <tr>
+            <td> ApplicationDate</td>
+            <td> @Model.ApplicationDate</td>
+        </tr>
+        <tr>
+            <td> CreationDate</td>
+            <td> @Model.CreationDate</td>
+        </tr>
+        <tr>
+            <td> PackageDesc</td>
+            <td> @Model.PackageDesc</td>
+        </tr>
+        <tr>
+            <td> Price</td>
+            <td> <span id="testPackagePrice">@Model.Price</span></td>
+        </tr>
+        <tr>
+            <td> MaxCandidatePerExam</td>
+            <td> @Model.MaxCandidatePerExam</td>
+        </tr>
+    </table>
+
+    <div class="card-header py-3">
+        <h4 class="m-0 font-weight-bold text-primary">TestPackagedet Details</h4>
+    </div>
+
+    <table class=" table table-bordered">
+        <thead>
+            <tr>
+                <th> NoOfTest</th>
+                <th> ValidateInMonths</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model.TestPackageDets != null && Model.TestPackageDets.Any())
+            {
+                @foreach (var temp in Model.TestPackageDets)
+                {
+                    <tr>
+                        <td>@temp.NoofTest</td>
+                        <td>@temp.ValidityInMonths</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2">No test details available.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Payment Form -->
+<div>
+    @await Component.InvokeAsync("OfferDiscountVC")
+</div>
+
+<tr>
+    <td>
+        <form asp-action="CheckOut" asp-controller="Purchase">
+            Mode:<select name="paymentmode" asp-items="@Html.GetEnumSelectList<PaymentModeEnumss>()">
+                <option value="0">  Select Payment Mode</option>
+            </select>
+            <input type="submit" class="btn btn-primary" value="Make Payment" />
+        </form>
+    </td>
+</tr>
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+        $('input[name="selectedOffer"]').change(function () {
+          
+            var selectedDiscount = parseFloat($(this).data('discount'));
+            var isPercentile = $(this).data('ispercentile');
+
+          
+            if (isNaN(selectedDiscount)) {
+                selectedDiscount = 0;
+            }
+
+           
+            var testPackagePriceText = $('#testPackagePrice').text().replace(/[^0-9.-]+/g, '');
+            var testPackagePrice = parseFloat(testPackagePriceText);
+
+          
+            if (isNaN(testPackagePrice)) {
+                testPackagePrice = 0;
+            }
+
+            
+            var updatedPrice = testPackagePrice;
+            if (isPercentile) {
+                updatedPrice = testPackagePrice * (1 - (selectedDiscount / 100)); 
+            } else {
+                updatedPrice = testPackagePrice - selectedDiscount; 
+            }
+
+           
+            $('#testPackagePrice').text(updatedPrice.toFixed(2));
+        });
+    });
+</script> *@

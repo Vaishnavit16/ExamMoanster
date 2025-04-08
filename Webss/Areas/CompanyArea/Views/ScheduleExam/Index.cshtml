@@ -1,0 +1,161 @@
+﻿ @model IEnumerable<ScheduleExamVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs with jQuery</title>
+
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+       
+        .tab-content {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+
+                               
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active btn btn-primary" id="Solved-tab" href="#Solved" role="tab" aria-controls="Solved" aria-selected="true">
+                                            Running
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link btn btn-primary" id="Unsolved-tab" href="#Unsolved" role="tab" aria-controls="Unsolved" aria-selected="false">
+                                            Finished
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <!-- Tab Content -->
+                                <div class="tab-content mt-3" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="Solved" role="tabpanel" aria-labelledby="Solved-tab">
+                                        <h2> Running</h2>
+
+                                        @await Component.InvokeAsync("runningVC")
+                                    </div>
+                                    <div class="tab-pane fade" id="Unsolved" role="tabpanel" aria-labelledby="Unsolved-tab">
+                                        <h2>Finished </h2>
+
+                                        @await Component.InvokeAsync("finishedVC")
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script>
+        $(document).ready(function () {
+            
+            $('#myTab a').on('click', function (e) {
+                e.preventDefault();
+
+                
+                $('#myTab a').removeClass('active');
+                $('.tab-pane').removeClass('show active');
+
+               
+                $(this).addClass('active');
+                var target = $(this).attr('href');
+                $(target).addClass('show active');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+<h1 style="text-align:center"><b>Schedule Exam List</b></h1>
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<div class="col-20">
+    <div class="card">
+        <div class="card-body">
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+            <table class="container table table-bordered table-condensed table-responsive">
+                <thead>
+                    <tr>
+                        <th>ScheduleExamID</th>
+                        <th>ScheduleDate</th>
+                        <th>Company</th> <!-- Display Company Name -->
+                        <th>Package</th> <!-- Display Package Title -->
+                         <th>Schedule Exam Detail</th> 
+                        <th>ExamDate</th>
+                        <th>StartTime</th>
+                        <th>EndTime</th>
+                        <th>IsResultOpen</th>
+                        <th>IsObjective</th>
+                          <th>QuestionBank</th> <!-- Display Question Bank Title -->
+                        <th>MarksPerQuestion</th>
+                        <th>PassingMarks</th> 
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var temp in Model)
+                    {
+                        <tr>
+                            <td>@temp.ScheduleExamID</td>
+                            <td>@temp.ScheduleDate</td>
+                            <td>@temp.CompanyName</td> <!-- Display Company Name -->
+                            <td>@temp.PackagePurchaseTitle</td> <!-- Display Package Purchase Title -->
+                             <td>@temp.ScheduleExamDetID</td> 
+                            <td>@temp.ExamDate</td>
+                            <td>@temp.StartTime</td>
+                            <td>@temp.EndTime</td>
+                            <td>@temp.IsResultOpen</td>
+                            <td>@temp.IsObjective</td>
+                               <td>@temp.QuestionBankTitle</td> <!-- Display Question Bank Title -->
+                            <td>@temp.MarksPerQuestion</td>
+                            <td>@temp.PassingMarks</td> 
+                            <td>
+                                <a asp-action="AddCandidate" asp-route-id="@temp.ScheduleExamID" class="btn btn-primary">Add Candidate</a>
+                                <a asp-action="Edit" asp-route-id="@temp.ScheduleExamID" asp-route-data="@temp.ScheduleExamDetID" class="btn btn-primary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@temp.ScheduleExamID" asp-route-data="@temp.ScheduleExamDetID" class="btn btn-primary">Delete</a>
+                                <a asp-action="Details" asp-route-id="@temp.ScheduleExamID" class="btn btn-primary">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

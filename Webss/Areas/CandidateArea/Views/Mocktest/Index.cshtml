@@ -1,0 +1,85 @@
+﻿@using Domain
+@model IEnumerable<MockTest>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center"><b>List Of MockTest</b></h1>
+<div class="col-15"> 
+<div class="card">
+<div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    @*<th>
+                    MockTestID
+                    </th>*@
+                    <th>
+                        Sr No
+                    </th>
+                    <th>
+                        MockTestName
+                    </th>
+                    <th>
+                        SubjectTitle
+                    </th>
+                    <th>
+                        NoOfQuestions
+                    </th>
+                    <th>
+                        MarkPerQuestion
+                    </th>
+                    <th>
+                        IsNegative
+                    </th>
+                    <th>
+                        PassingMarks
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @{
+                int srno = 1;
+            }
+            <tbody>
+                @foreach (var temp in Model)
+
+                {
+                    <tr>
+                        
+                        <td>
+                            @srno
+                        </td>
+                        <td>
+                            @temp.MockTestName
+                        </td>
+                        <td>
+                            @temp.MockTestSubject.SubjectTitle
+                        </td>
+                        <td>
+                            @temp.NoofQuestion
+                        </td>
+                        <td>
+                            @temp.MarksPerQuestion
+                        </td>
+                        <td>
+                            @temp.IsNegavtive
+
+                        </td>
+                        <td>
+                            @temp.PassingMarks
+                        </td>
+                        <td>
+                            <a asp-action="Start" asp-route-id="@temp.MockTestID" class="btn btn-primary">Start</a>
+                        </td>
+                    </tr>
+                    srno++;
+
+                }
+            </tbody>
+        </table>
+
+        </div>
+    </div>
+</div>

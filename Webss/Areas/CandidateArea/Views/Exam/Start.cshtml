@@ -1,0 +1,74 @@
+﻿@using Domain
+@model ScheduleExamDet
+
+@{
+    ViewData["Title"] = "Start";
+}
+
+<h1>Start</h1>
+
+<div>
+    <h4>ScheduleExamDet</h4>
+    <hr />
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-6 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <dl>
+                                @*<dt class = "col-sm-2">
+
+                                        @Html.DisplayNameFor(model => model.ScheduleExamDetID)
+                                    </dt>
+                                    <dd class = "col-sm-10">
+                                        @Html.DisplayFor(model => model.ScheduleExamDetID)
+                                    </dd>*@
+
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.QuestionBank.QuestionBankTitle)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.QuestionBank.QuestionBankTitle)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.MarksPerQuestion)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.MarksPerQuestion)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    @Html.DisplayNameFor(model => model.PassingMarks)
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.PassingMarks)
+                                </dd>
+                            </dl>
+                            <br />
+                            <br />
+                           @*  @{
+                                var value = Convert.ToDateTime(Model.ScheduleExam.StartTime);
+                                var value1 = Convert.ToDateTime(Model.ScheduleExam.EndTime);
+                                if (Model.ScheduleExam.ExamDate.Date == DateTime.Now.Date && value <= DateTime.Now && value1 >= DateTime.Now)
+                                {
+                                    <div style="text-align:center">
+                                        <a asp-action="StartTest" asp-route-id="@Model.ScheduleExamDetID" asp-route-data="@ViewBag.id" class="btn btn-success">Start Test</a>
+                                    </div>
+                                }
+                            } *@
+
+                            <a asp-action="StartTest" asp-route-id="@Model.ScheduleExamDetID" asp-route-data="@ViewBag.id" class="btn btn-success">Start Test</a>
+
+                            <br />
+                            <br />
+                            <br />
+                            <div style="text-align:center">
+                                <a asp-action="Index" class="btn btn-warning">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

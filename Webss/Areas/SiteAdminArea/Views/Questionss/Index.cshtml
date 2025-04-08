@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MockTestQuestion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center"><b>MockTestQuestion</b></h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                <a asp-action="Create" class="btn btn-primary">Create New</a>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            MockTestQuestionID
+                        </th>
+                        <th>
+                            MockTestSubjectID
+                        </th>
+                        <th>
+                            Question
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var temp in Model)
+                    {
+                        <tr>
+                            <td>
+                                @temp.MockTestQuestionID
+                            </td>
+                            <td>
+                                @temp.MockTestSubject.SubjectTitle
+                            </td>
+                            <td>
+                                @temp.Questions
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@temp.MockTestQuestionID" class="btn btn-primary">Edit</a>
+
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-route-id="@temp.MockTestQuestionID" class="btn btn-primary">Delete</a>
+                            </td>
+
+                            <td>
+                                <a asp-action="Details" asp-route-id="@temp.MockTestQuestionID" class="btn btn-primary">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

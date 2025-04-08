@@ -1,0 +1,38 @@
+﻿@model IEnumerable<QuestionBank>
+
+<h3><b>All QuestionBanks</b></h3>
+<div class="col-6">
+    <div class="card">
+        <div class="card-body">
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> SrNo</th>
+            <th>QuestionBank Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int srno = 1;
+        }
+        @foreach (var temp in Model)
+        {
+            <tr>
+                <td Scope="row"> @srno</td>
+                <td>@temp.QuestionBankTitle</td>
+                <td>
+                    <!-- Button to manage the QuestionBank -->
+                    <a class="btn btn-primary" asp-action="ManageQuestions" asp-controller="Company" asp-route-questionBankId="@temp.QuestionBankID">
+                        Manage QuestionBank
+                    </a>
+                </td>
+            </tr>
+            srno++;
+        }
+    </tbody>
+</table>
+</div>
+</div>
+</div>

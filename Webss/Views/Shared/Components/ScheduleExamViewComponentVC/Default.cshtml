@@ -1,0 +1,95 @@
+﻿@using Domain
+@model IEnumerable<ScheduleExam>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3 style="text-align:center"><b>Exam Schedule</b></h3>
+
+
+<table class="table table-bordered table-condensed table-responsive ">
+    <thead>
+        <tr>
+            <th>
+
+
+                Sr No
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduleDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ExamDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IsObjective)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @{
+        int srno = 1;
+    }
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" asp-for="@item.ScheduleExamID" />
+                    @srno
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduleDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsObjective)
+                    @{
+                        if (item.IsObjective == true)
+                        {
+                            @:YES
+                        }
+                        else
+                        {
+                            @:NO
+                        }
+                    }
+                </td>
+               @*  
+                
+ *@ 
+
+
+                <td>
+                    <a asp-action="Start" asp-controller="Exam" asp-route-id="@item.ScheduleExamID" asp-route-data="@item.ScheduleExamCandidates" class="btn btn-success">Start</a>
+                </td>
+                </tr>
+            srno++;
+        }
+    </tbody>
+</table>

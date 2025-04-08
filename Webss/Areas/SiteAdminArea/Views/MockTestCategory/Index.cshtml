@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MockTestCategory>
+
+<html>
+<head>
+    <title> </title>
+</head>
+<body>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h2 class="m-0 font-weight-bold text-primary">MockTestCategory List</h2>
+        </div>
+
+
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mt-3">
+                                    <a asp-action="Create" asp-controller="MockTestCategory" class="btn btn-primary">  Create MockTestCategory</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>MockTestCategoryID</th>
+                                                    <th>MockTestCategoryName</th>
+
+                                                </tr>
+                                            </thead>
+
+
+                                            <tbody>
+                                                @foreach (var temp in Model)
+                                                {
+                                                    <tr>
+                                                        <td> @temp.MockTestCategoryID</td>
+                                                        <td> @temp.MockTestCategoryName</td>
+
+                                                        <td>
+
+                                                            <a asp-action="Edit" asp-route-id="@temp.MockTestCategoryID" class="btn btn-primary"> Edit </a>
+                                                            <a asp-action="Delete" asp-route-id="@temp.MockTestCategoryID" class="btn btn-primary"> Delete </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+</div>
+
+
+</body>
+</html>

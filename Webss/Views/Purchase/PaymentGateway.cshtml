@@ -1,0 +1,52 @@
+﻿
+
+
+
+ @model PackageCardPayment
+@{
+    ViewData["Title"] = "PaymentGateway";
+}
+
+
+<hr />
+
+<div style="background-color:white; padding: 20px;">
+    <!-- White background here -->
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="PaymentGateway">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="PackagePurchasePaymentID" class="control-label"></label>
+                    <input type="hidden" asp-for="PackagePurchasePaymentID" value="@ViewBag.id" class="form-control" />
+                    <span asp-validation-for="PackagePurchasePaymentID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TransactionNo" class="control-label"></label>
+                    <input asp-for="TransactionNo" class="form-control" />
+                    <span asp-validation-for="TransactionNo" class="text-danger"></span>
+                </div>
+
+               @*  <div class="form-group">
+                    <label asp-for="AutCode" class="control-label"></label>
+                    <input asp-for="AutCode" class="form-control" />
+                    <span asp-validation-for="AutCode" class="text-danger"></span>
+                </div> *@
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+
+<div>
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>

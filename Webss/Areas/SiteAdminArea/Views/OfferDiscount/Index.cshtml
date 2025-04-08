@@ -1,0 +1,65 @@
+﻿
+@model IEnumerable<OfferDiscount>
+
+<html>
+    <head> 
+        <title> </title>
+    </head>
+    <body>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h2 class="m-0 font-weight-bold text-primary">OfferDiscount List</h2>
+        </div>
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mt-3">
+                        <a asp-action="Create" asp-controller="OfferDiscount" class="btn btn-primary">  Create OfferDiscount</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>OfferDiscountID</th>
+                                        <th>OfferDiscountTitle</th>
+                                        <th>ApplicableTo</th>
+                                        <th>ToFromDate</th>
+                                        <th> Discount Amount</th>
+                                        <th>Ispercentile</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach (var temp in Model)
+                                    {
+                                        <tr>
+                                            <td> @temp.OfferDiscountID</td>
+                                            <td> @temp.OfferTitle</td>
+                                            <td> @temp.ApplicableTo</td>
+                                            <td> @temp.ToFromDate</td>
+                                            <td> @temp.DiscountAmount</td>
+                                            <td> @temp.Ispercentile</td>
+                                            <td>
+
+                                                <a asp-action="Edit" asp-route-id="@temp.OfferDiscountID" class="btn btn-primary"> Edit </a>
+                                                <a asp-action="Delete" asp-route-id="@temp.OfferDiscountID" class="btn btn-primary"> Delete </a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </body>
+</html>

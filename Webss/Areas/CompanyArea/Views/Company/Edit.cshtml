@@ -1,0 +1,81 @@
+﻿@model QuestionWithOptionsViewModelDTO
+
+<div class="col-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><b>Edit Question</b> </h5>
+
+            <!-- Vertical Form -->
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="QuestionID" />
+                <input type="hidden" asp-for="QuestionBankID" />
+                <div>
+                    <label asp-for="QuestionTitle">Question Title:</label>
+                    <input asp-for="QuestionTitle" />
+                </div>
+
+                <div>
+                    <label asp-for="IsObjective">Is Objective?</label>
+                    <input type="checkbox" asp-for="IsObjective" id="IsObjectiveCheckbox" onchange="toggleOptionsVisibility()" />
+                </div>
+
+
+                <div id="optionsDiv" style="display: none;">
+                    <div>
+
+
+                        <label>Option 1:</label>
+
+                        <input asp-for="Option[0]" />
+                        <input type="checkbox" asp-for="IsCorrect[0]" />
+                    </div>
+
+                    <div>
+
+
+                        <label>Option 2:</label>
+
+                        <input asp-for="Option[1]" />
+                        <input type="checkbox" asp-for="IsCorrect[1]" />
+                    </div>
+
+                    <div>
+
+
+                        <label>Option 3:</label>
+
+                        <input asp-for="Option[2]" />
+                        <input type="checkbox" asp-for="IsCorrect[2]" />
+                    </div>
+
+                    <div>
+
+
+                        <label>Option 4:</label>
+
+                        <input asp-for="Option[3]" />
+                        <input type="checkbox" asp-for="IsCorrect[3]" />
+                    </div>
+                </div>
+
+                <input type="submit" value="Update" />
+
+            </form>
+            <script>
+
+                function toggleOptionsVisibility() {
+                    var optionsDiv = document.getElementById("optionsDiv");
+                    var isObjectiveChecked = document.getElementById("IsObjectiveCheckbox").checked;
+
+                    if (isObjectiveChecked) {
+                        optionsDiv.style.display = "block";
+                    } else {
+                        optionsDiv.style.display = "none";
+                    }
+                }
+            </script>
+
+
+        </div>
+    </div>
+</div>

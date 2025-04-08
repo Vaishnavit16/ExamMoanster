@@ -1,0 +1,18 @@
+﻿@model RepoResultDto
+<br />
+<br />
+@if (Model.IsSuccess)
+{
+    <div class="alert alert-danger">
+        <h2> Registration Successfully </h2>
+        for Login <a asp-action="SignIn"> Click Here </a>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <h2> Registration UnSuccessfully </h2>
+        <h3> Error :@Model.Message</h3>
+        <a asp-action="Register"> Go Back </a>
+    </div>
+}

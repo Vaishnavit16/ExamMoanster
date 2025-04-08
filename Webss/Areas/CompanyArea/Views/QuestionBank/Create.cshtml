@@ -1,0 +1,50 @@
+﻿@model QuestionBank
+<div class="col-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Create QuestionBank </h5>
+
+            <!-- Vertical Form -->
+            <form asp-action="Create" class="row g-3">
+                <div class="mt-3">
+
+                    <div class="col-12">
+                        <label class="form-label">  Select QuestionDbCategory</label>
+                        <select class="form-select" asp-for="QuestionDBCategoryID" asp-items="@ViewBag.questiondbcategories">
+                            <option>Select QuestionDbCategory </option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="mt-3">
+
+                    <div class="col-12">
+                        <label class="form-label">  Select Company</label>
+                        <select class="form-select" asp-for="CompanyID" asp-items="@ViewBag.companies">
+                            <option>Select  Company</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label asp-for="QuestionBankTitle" class="form-label">
+                    </label>
+                    <input asp-for="QuestionBankTitle" class="form-control" />
+
+                </div>
+
+               
+
+
+                <div class="mt-3">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form><!-- Vertical Form -->
+
+        </div>
+    </div>
+</div>

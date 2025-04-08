@@ -1,0 +1,272 @@
+﻿@* @* @model QuestionAnswerVM
+
+@{
+    ViewBag.Title = "Question Details";
+}
+
+<h2>Question Details</h2>
+
+<div>
+    <strong>Question:</strong> @Model.Question
+</div>
+
+<!-- Option 1 -->
+<div>
+    <strong>Option 1:</strong> @Model.Option1
+    <span style="color: @(Model.IsCurrect1 ? "green" : "red")">
+        @(Model.IsCurrect1 ? "Correct" : "Incorrect")
+    </span>
+</div>
+
+<!-- Option 2 -->
+<div>
+    <strong>Option 2:</strong> @Model.Option2
+    <span style="color: @(Model.IsCurrect2 ? "green" : "red")">
+        @(Model.IsCurrect2 ? "Correct" : "Incorrect")
+    </span>
+</div>
+
+<!-- Option 3 -->
+<div>
+    <strong>Option 3:</strong> @Model.Option3
+    <span style="color: @(Model.IsCurrect3 ? "green" : "red")">
+        @(Model.IsCurrect3 ? "Correct" : "Incorrect")
+    </span>
+</div>
+
+<!-- Option 4 -->
+<div>
+    <strong>Option 4:</strong> @Model.Option4
+    <span style="color: @(Model.IsCurrect4 ? "green" : "red")">
+        @(Model.IsCurrect4 ? "Correct" : "Incorrect")
+    </span>
+</div>
+
+<!-- Back to Home Link -->
+<a href="@Url.Action("Index", "Home")">Back to Home</a> *@
+
+
+
+
+   @*  @model QuestionAnswerVM
+
+@{
+    ViewBag.Title = "Question Details";
+}
+
+<h2>Question Details</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Question</th>
+        <td>@Model.Question</td>
+    </tr>
+
+    <tr>
+        <th>Option 1</th>
+        <td>
+            @Model.Option1
+            <span style="color: @(Model.IsCurrect1 ? "green" : "red")">
+                @(Model.IsCurrect1 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+
+    <tr>
+        <th>Option 2</th>
+        <td>
+            @Model.Option2
+            <span style="color: @(Model.IsCurrect2 ? "green" : "red")">
+                @(Model.IsCurrect2 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+
+    <tr>
+        <th>Option 3</th>
+        <td>
+            @Model.Option3
+            <span style="color: @(Model.IsCurrect3 ? "green" : "red")">
+                @(Model.IsCurrect3 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+
+    <tr>
+        <th>Option 4</th>
+        <td>
+            @Model.Option4
+            <span style="color: @(Model.IsCurrect4 ? "green" : "red")">
+                @(Model.IsCurrect4 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+</table>
+
+<!-- Back to Home Link -->
+<a href="@Url.Action("Index", "Questionss")" class="btn btn-primary">Back to Home</a> *@ 
+
+
+@* @model QuestionAnswerVM
+
+@{
+    ViewBag.Title = "Question Details";
+}
+
+<h2>Question Details</h2>
+
+<!-- Table for the Question -->
+<table class="table table-bordered">
+    <tr>
+        <th>Question</th>
+        <td>@Model.Question</td>
+    </tr>
+</table>
+
+<!-- Table for the Options -->
+<h3>Options</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Option 1</th>
+        <td>@Model.Option1</td>
+    </tr>
+    <tr>
+        <th>Option 2</th>
+        <td>@Model.Option2</td>
+    </tr>
+    <tr>
+        <th>Option 3</th>
+        <td>@Model.Option3</td>
+    </tr>
+    <tr>
+        <th>Option 4</th>
+        <td>@Model.Option4</td>
+    </tr>
+</table>
+
+<!-- Table for Correct Options -->
+<h3>Correct Options</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Option 1</th>
+        <td>
+            @Model.IsCurrect1 ? "Correct" : "Incorrect"
+            <span style="color: @(Model.IsCurrect1 ? "green" : "red")">
+                @(Model.IsCurrect1 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th>Option 2</th>
+        <td>
+            @Model.IsCurrect2 ? "Correct" : "Incorrect"
+            <span style="color: @(Model.IsCurrect2 ? "green" : "red")">
+                @(Model.IsCurrect2 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th>Option 3</th>
+        <td>
+            @Model.IsCurrect3 ? "Correct" : "Incorrect"
+            <span style="color: @(Model.IsCurrect3 ? "green" : "red")">
+                @(Model.IsCurrect3 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <th>Option 4</th>
+        <td>
+            @Model.IsCurrect4 ? "Correct" : "Incorrect"
+            <span style="color: @(Model.IsCurrect4 ? "green" : "red")">
+                @(Model.IsCurrect4 ? "Correct" : "Incorrect")
+            </span>
+        </td>
+    </tr>
+</table>
+
+<!-- Back to Home Link -->
+<a href="@Url.Action("Index", "Questionss")" class="btn btn-primary">Back to Home</a>
+ *@
+
+
+
+ @model QuestionAnswerVM
+
+@{
+    ViewBag.Title = "Question Details";
+}
+
+<h4 style="text-align:center"><b>Question Details</b></h4>
+
+<!-- Table for the Question -->
+<table class="table table-bordered">
+    <tr>
+        <th>Question</th>
+        <td>@Model.Question</td>
+    </tr>
+</table>
+
+<!-- Table for the Options -->
+<h4 style="text-align:center"><b>Options</b></h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Option 1</th>
+        <td>@Model.Option1</td>
+    </tr>
+    <tr>
+        <th>Option 2</th>
+        <td>@Model.Option2</td>
+    </tr>
+    <tr>
+        <th>Option 3</th>
+        <td>@Model.Option3</td>
+    </tr>
+    <tr>
+        <th>Option 4</th>
+        <td>@Model.Option4</td>
+    </tr>
+</table>
+
+<!-- Table for Correct Options -->
+<h4 style="text-align:center"><b>Correct Options</b></h4>
+<table class="table table-bordered">
+    @if (Model.IsCurrect1)
+    {
+        <tr>
+            <th>Option 1</th>
+            <td>@Model.Option1</td>
+        </tr>
+    }
+
+    @if (Model.IsCurrect2)
+    {
+        <tr>
+            <th>Option 2</th>
+            <td>@Model.Option2</td>
+        </tr>
+    }
+
+    @if (Model.IsCurrect3)
+    {
+        <tr>
+            <th>Option 3</th>
+            <td>@Model.Option3</td>
+        </tr>
+    }
+
+    @if (Model.IsCurrect4)
+    {
+        <tr>
+            <th>Option 4</th>
+            <td>@Model.Option4</td>
+        </tr>
+    }
+</table>
+
+<!-- Back to Home Link -->
+<a href="@Url.Action("Index", "Questionss")" class="btn btn-primary">Back to Home</a>
+
+
+
+

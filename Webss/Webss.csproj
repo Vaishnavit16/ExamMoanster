@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\backendassets\docs\**" />
+    <Compile Remove="wwwroot\backendassets\fonts\**" />
+    <Compile Remove="wwwroot\backendassets\images\**" />
+    <Compile Remove="wwwroot\backendassets\pages\**" />
+    <Compile Remove="wwwroot\backendassets\partials\**" />
+    <Compile Remove="wwwroot\backendassets\template\**" />
+    <Compile Remove="wwwroot\backendassets\vendors\**" />
+    <Content Remove="wwwroot\backendassets\docs\**" />
+    <Content Remove="wwwroot\backendassets\fonts\**" />
+    <Content Remove="wwwroot\backendassets\images\**" />
+    <Content Remove="wwwroot\backendassets\pages\**" />
+    <Content Remove="wwwroot\backendassets\partials\**" />
+    <Content Remove="wwwroot\backendassets\template\**" />
+    <Content Remove="wwwroot\backendassets\vendors\**" />
+    <EmbeddedResource Remove="wwwroot\backendassets\docs\**" />
+    <EmbeddedResource Remove="wwwroot\backendassets\fonts\**" />
+    <EmbeddedResource Remove="wwwroot\backendassets\images\**" />
+    <EmbeddedResource Remove="wwwroot\backendassets\pages\**" />
+    <EmbeddedResource Remove="wwwroot\backendassets\partials\**" />
+    <EmbeddedResource Remove="wwwroot\backendassets\template\**" />
+    <EmbeddedResource Remove="wwwroot\backendassets\vendors\**" />
+    <None Remove="wwwroot\backendassets\docs\**" />
+    <None Remove="wwwroot\backendassets\fonts\**" />
+    <None Remove="wwwroot\backendassets\images\**" />
+    <None Remove="wwwroot\backendassets\pages\**" />
+    <None Remove="wwwroot\backendassets\partials\**" />
+    <None Remove="wwwroot\backendassets\template\**" />
+    <None Remove="wwwroot\backendassets\vendors\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\Infras\Infras.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\CandidateArea\Data\" />
+    <Folder Include="Areas\CandidateArea\Models\" />
+    <Folder Include="Areas\CompanyArea\Data\" />
+    <Folder Include="Areas\CompanyArea\Models\" />
+    <Folder Include="Areas\SiteAdminArea\Data\" />
+    <Folder Include="Areas\SiteAdminArea\Models\" />
+  </ItemGroup>
+
+</Project>

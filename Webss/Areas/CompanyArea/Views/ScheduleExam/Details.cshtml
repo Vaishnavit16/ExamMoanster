@@ -1,0 +1,94 @@
+﻿@model ScheduleExam
+
+@{
+    ViewData["Title"] = "Schedule Exam Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3 style="text-align:center"><b>Exam Details</b></h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Schedule Exam ID</th>
+            <td>@Model.ScheduleExamID</td>
+        </tr>
+        <tr>
+            <th>Company</th>
+            <td>@Model.Company.CompanyName</td> 
+        </tr>
+        <tr>
+            <th>Schedule Date</th>
+            <td>@Model.ScheduleDate.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <th>Exam Date</th>
+            <td>@Model.ExamDate.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <th>Start Time</th>
+            <td>@Model.StartTime.ToString("hh:mm tt")</td>
+        </tr>
+        <tr>
+            <th>End Time</th>
+            <td>@Model.EndTime.ToString("hh:mm tt")</td>
+        </tr>
+        <tr>
+            <th>Is Result Open</th>
+            <td>@Model.IsResultOpen</td>
+        </tr>
+        <tr>
+            <th>Is Objective</th>
+            <td>@Model.IsObjective</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <h4 style="text-align:center"><b>Package Purchase Information</b></h4>
+    
+   
+    <table class="table table-bordered ">
+        <tr>
+            <th>Package Purchase </th>
+            <td>@Model.PackagePurchase.PackagePurchaseTitle</td>
+        </tr>
+
+    </table>
+</div>
+
+<div>
+    <h4 style="text-align:center"><b>Schedule Exam Candidates</b></h4>
+    <table class="table table-bordered ">
+        <tr>
+            <th>Candidate Name</th>
+        </tr>
+        @foreach (var candidate in Model.ScheduleExamCandidates)
+        {
+            <tr>
+                <td>@candidate.Candidate.CandidateName</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    <h4 style="text-align:center"><b> Schedule Exam Details</b></h4>
+    <table class="table table-bordered ">
+        <tr>
+            <th>Marks Per Question</th>
+            <th>Passing Marks</th>
+            <th>Question Bank Title</th>
+        </tr>
+        @foreach (var det in Model.ScheduleExamDets)
+        {
+            <tr>
+                <td>@det.MarksPerQuestion</td>
+                <td>@det.PassingMarks</td>
+                <td>@det.QuestionBank.QuestionBankTitle</td> <!-- Assuming QuestionBank has 'QuestionBankTitle' -->
+            </tr>
+        }
+    </table>
+</div>
+
+<a asp-action="Index" asp-controller="ScheduleExam" class="btn btn-primary"> Back to List</a>

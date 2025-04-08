@@ -1,0 +1,45 @@
+﻿@model IEnumerable<OfferDiscount>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h2 class="m-0 font-weight-bold text-primary">MockTest List</h2>
+    </div>
+
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>OfferDiscountID</th>
+                <th>OfferDiscountTitle</th>
+                <th>ApplicableTo</th>
+                <th>ToFromDate</th>
+                <th>Discount Amount</th>
+                <th>Ispercentile</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var temp in Model)
+            {
+                <tr>
+                    <td>@temp.OfferDiscountID</td>
+                    <td>@temp.OfferTitle</td>
+                    <td>@temp.ApplicableTo</td>
+                    <td>@temp.ToFromDate</td>
+                    <td>@temp.DiscountAmount</td>
+                    <td>@temp.Ispercentile</td>
+                    <td>
+
+                        <input type="radio" name="selectedOffer" value="@temp.OfferDiscountID"
+                               data-discount="@temp.DiscountAmount"
+                               data-ispercentile="@temp.Ispercentile" />
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+

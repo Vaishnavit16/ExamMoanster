@@ -1,0 +1,87 @@
+﻿@model ScheduleExamVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<hr />
+<div class="col-10">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label asp-for="ScheduleDate" class="control-label"></label>
+                            <input asp-for="ScheduleDate" class="form-control" />
+                            <span asp-validation-for="ScheduleDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            @*<label asp-for="CompanyID" class="control-label"></label>*@
+                            <input type="hidden" asp-for="CompanyID" value="@Context.Session.GetString("CompanyID")" class="form-control" />
+                            <span asp-validation-for="CompanyID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">PackagePurchase</label>
+                            <select asp-for="PackagePurchaseID" asp-items="@ViewBag.packagepurchaseid" class="form-control"></select>
+                            <span asp-validation-for="PackagePurchaseID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ExamDate" class="control-label"></label>
+                            <input asp-for="ExamDate" class="form-control" />
+                            <span asp-validation-for="ExamDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="StartTime" class="control-label"></label>
+                            <input asp-for="StartTime" class="form-control" />
+                            <span asp-validation-for="StartTime" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="EndTime" class="control-label"></label>
+                            <input asp-for="EndTime" class="form-control" />
+                            <span asp-validation-for="EndTime" class="text-danger"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="IsResultOpen" /> @Html.DisplayNameFor(model => model.IsResultOpen)
+                            </label>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" asp-for="IsObjective" /> @Html.DisplayNameFor(model => model.IsObjective)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="QuestionBankID" class="control-label"></label>
+                            <select asp-for="QuestionBankID" asp-items="@ViewBag.questionbankid" class="form-control"></select>
+                            <span asp-validation-for="QuestionBankID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MarksPerQuestion" class="control-label"></label>
+                            <input asp-for="MarksPerQuestion" class="form-control" />
+                            <span asp-validation-for="MarksPerQuestion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PassingMarks" class="control-label"></label>
+                            <input asp-for="PassingMarks" class="form-control" />
+                            <span asp-validation-for="PassingMarks" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+

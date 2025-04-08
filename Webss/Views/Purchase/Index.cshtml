@@ -1,0 +1,126 @@
+﻿@* 
+
+
+
+@model IEnumerable<TestPackageVM>
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<div style="background-color:white;">
+    <!-- Adding white background here -->
+    <h1>TestPackages</h1>
+    <hr />
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-5 mx-auto">
+                    <div>
+
+
+                        @if (TempData["ValidityMessage"] != null)
+                        {
+                            <div class="alert alert-warning">
+                                @TempData["ValidityMessage"]
+                            </div>
+                        }
+                        @foreach (var temp in Model)
+                        {
+                            <div style="border:black solid 2px;text-align:center; background-color:white;">
+                                <!-- Adding white background here too -->
+                                Package Title : @temp.PackageTitle <br />
+                                Package Desc : @temp.PackageDesc <br />
+                                Price : @temp.Price <br />
+                                Max Candidate Per Exam : @temp.MaxCandidatePerExam <br />
+                                No Of Tests : @temp.NoofTest <br />
+                                Validity In Months : @temp.ValidityInMonths <br />
+                                <br />
+                                <table class="container">
+                                    <tr class="row">
+                                        <td class="col-lg-4">
+                                        </td>
+                                        <td class="col-lg-4">
+                                        </td>
+                                        <td class="col-lg-4">
+                                            <h3>
+                                                <a class="btn btn-success" asp-action="Buy" asp-controller="Purchase" asp-route-id="@temp.TestPackageID" asp-route-data="@temp.TestPackageDetID">Buy</a>
+                                            </h3>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br />
+                            <br />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+ *@
+
+
+                                                @model IEnumerable<TestPackageVM>
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<div style="background-color:white;">
+    <!-- Adding white background here -->
+    <h1>TestPackages</h1>
+    <hr />
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-12 mx-auto">
+                    <div>
+
+                        @if (TempData["ValidityMessage"] != null)
+                        {
+                            <div class="alert alert-warning">
+                                @TempData["ValidityMessage"]
+                            </div>
+                        }
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Package Title</th>
+                                    <th>Package Desc</th>
+                                    <th>Price</th>
+                                    <th>Max Candidates Per Exam</th>
+                                    <th>No Of Tests</th>
+                                    <th>Validity (Months)</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var temp in Model)
+                                {
+                                    <tr>
+                                        <td>@temp.PackageTitle</td>
+                                        <td>@temp.PackageDesc</td>
+                                        <td>@temp.Price</td>
+                                        <td>@temp.MaxCandidatePerExam</td>
+                                        <td>@temp.NoofTest</td>
+                                        <td>@temp.ValidityInMonths</td>
+                                        <td>
+                                            <a class="btn btn-success" asp-action="Buy" asp-controller="Purchase" asp-route-id="@temp.TestPackageID" asp-route-data="@temp.TestPackageDetID">Buy</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
